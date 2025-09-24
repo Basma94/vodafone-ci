@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vodafone CI Network Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#ea2a33",
+          "background-light": "#f8f6f6",
+          "background-dark": "#211111",
+        },
+        fontFamily: { "display": ["Manrope"] },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+  }
+</style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-black dark:text-white">
+<div class="flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-black/10 dark:border-white/10">
+    <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <div class="text-primary w-8 h-8">
+          <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+          </svg>
+        </div>
+        <h1 class="text-xl font-bold text-black dark:text-white">Vodafone CI</h1>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-black/70 dark:text-white/70">
+        <a class="hover:text-primary transition-colors" href="./index.html">Home</a>
+        <a class="hover:text-primary transition-colors" href="./Market.html">Market</a>
+        <a class="text-primary font-semibold" href="./Network.html">Network</a>
+        <a class="hover:text-primary transition-colors" href="./Reports.html">Reports</a>
+        <a class="hover:text-primary transition-colors" href="./statistics.html">Statistics</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button class="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined text-black/60 dark:text-white/60">notifications</span>
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+          <span class="material-symbols-outlined text-black/60 dark:text-white/60">settings</span>
+        </button>
+        <div class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2XCykDUCTyWdLIggZlMMdRBDacpKjVJH1u7NZ3hZcpX1uDI-8naSfDMelTSZoLBzYJRz8fPsqjoGRQ5FI0oBU-mfzogjoSXh8VByrvr3c0vnEAp4owX6ZcaGJAgxY-vuViwndWZUL17kQTuxABggzO46Ye7kfCjuNdYgBltziP7-VnppU0VM6v6tnBItfMwZy30W7pKEY-_LeE4OeU0FhjzFfS-8W9pDg-h_jLx2KTp8BNxu5rNhEvhCLbv1BL1rlAJk7C73f3R4q");'></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow container mx-auto p-6 flex gap-6">
+    <div class="flex-grow flex flex-col gap-6">
+      <div class="flex items-center gap-2">
+        <button class="px-4 py-2 text-sm font-medium rounded-full bg-primary/10 dark:bg-primary/20 text-primary border border-primary/20 dark:border-primary/30">All</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-full bg-black/5 dark:bg-white/5 text-black/70 dark:text-white/70 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">Market</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-full bg-black/5 dark:bg-white/5 text-black/70 dark:text-white/70 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">Competitors</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-full bg-black/5 dark:bg-white/5 text-black/70 dark:text-white/70 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">Date Range</button>
+        <button class="px-4 py-2 text-sm font-medium rounded-full bg-black/5 dark:bg-white/5 text-black/70 dark:text-white/70 hover:bg-black/10 dark:hover:bg-white/10 transition-colors">Sources</button>
+      </div>
+
+      <!-- Network KPIs -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 text-black dark:text-white">Network KPIs</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-background-light dark:bg-background-dark border-t-4 border-green-500 rounded-lg shadow-md p-6 flex flex-col gap-2 hover:shadow-lg transition-shadow">
+            <p class="text-sm font-medium text-black/60 dark:text-white/60">Coverage %</p>
+            <p class="text-3xl font-bold text-black dark:text-white">98.5%</p>
+            <div class="flex items-center gap-2 text-sm font-medium text-green-500">
+              <span class="material-symbols-outlined text-base">trending_up</span>
+              <span>+0.2% vs benchmark</span>
+            </div>
+          </div>
+          <div class="bg-background-light dark:bg-background-dark border-t-4 border-green-500 rounded-lg shadow-md p-6 flex flex-col gap-2 hover:shadow-lg transition-shadow">
+            <p class="text-sm font-medium text-black/60 dark:text-white/60">Latency (ms)</p>
+            <p class="text-3xl font-bold text-black dark:text-white">25ms</p>
+            <div class="flex items-center gap-2 text-sm font-medium text-green-500">
+              <span class="material-symbols-outlined text-base">trending_down</span>
+              <span>-5ms vs benchmark</span>
+            </div>
+          </div>
+          <div class="bg-background-light dark:bg-background-dark border-t-4 border-red-500 rounded-lg shadow-md p-6 flex flex-col gap-2 hover:shadow-lg transition-shadow">
+            <p class="text-sm font-medium text-black/60 dark:text-white/60">Drop Rate (%)</p>
+            <p class="text-3xl font-bold text-black dark:text-white">0.2%</p>
+            <div class="flex items-center gap-2 text-sm font-medium text-red-500">
+              <span class="material-symbols-outlined text-base">trending_up</span>
+              <span>+0.1% vs benchmark</span>
+            </div>
+          </div>
+          <div class="bg-background-light dark:bg-background-dark border-t-4 border-green-500 rounded-lg shadow-md p-6 flex flex-col gap-2 hover:shadow-lg transition-shadow">
+            <p class="text-sm font-medium text-black/60 dark:text-white/60">Customer Sentiment</p>
+            <p class="text-3xl font-bold text-black dark:text-white">4.2/5</p>
+            <div class="flex items-center gap-2 text-sm font-medium text-green-500">
+              <span class="material-symbols-outlined text-base">trending_up</span>
+              <span>+0.1 vs last month</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Drive Test Analytics -->
+      <section>
+        <h2 class="text-2xl font-bold mb-4 text-black dark:text-white">Drive Test Analytics</h2>
+        <div class="rounded-xl overflow-hidden shadow-lg relative aspect-video">
+          <img alt="Network Heatmap" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz3Njc6laibvirxZ2bFJP7pDkzOHVHFbfQDbTA5WITg2NlXV_ivXUwp0loDhjsGde8t1jehUZRAR9CTUJ5K4zEp893c2y3Zwp62tyJNyFh-5AevKCz8iWLFQDm-mmMP4lej-MqEcsvG6CUMGLs4-Vkv3KoDN-lDlAB7ALtKc-ZgNyRuGqMzZdPJfpcAkCuwBlExS0xYdiWI4GgHk2Vjg3g-PWUtVmrZlBCFtfkT7Vk8cDjnWGjJYFJJD_oSJqM6zQyLWnjh_6jBxnW"/>
+          <div class="absolute bottom-4 right-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm p-4 rounded-lg shadow-md">
+            <h4 class="font-bold mb-2 text-sm text-black dark:text-white">Competitive Intensity</h4>
+            <div class="flex items-center gap-2">
+              <span class="w-4 h-4 rounded-full bg-green-500"></span>
+              <span class="text-xs text-black/70 dark:text-white/70">Low</span>
+            </div>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="w-4 h-4 rounded-full bg-yellow-500"></span>
+              <span class="text-xs text-black/70 dark:text-white/70">Medium</span>
+            </div>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="w-4 h-4 rounded-full bg-primary"></span>
+              <span class="text-xs text-black/70 dark:text-white/70">High</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SWOT -->
+      <section>
+        <h2 class="text-2xl font-bold mb-1 text-black dark:text-white">SWOT Insights</h2>
+        <p class="text-sm text-black/60 dark:text-white/60 mb-4">AI-generated analysis of network strengths, weaknesses, opportunities, and threats.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-background-light dark:bg-background-dark border-t-4 border-blue-500 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <h3 class="font-bold text-lg mb-3 text-black dark:text-white">Strengths</h3>
+            <ul class="space-y-2 text-sm text-black/80 dark:text-white/80 list-disc list-inside">
+              <li>High network coverage in urban areas.</li>
+              <li>Strong brand reputation.</li>
+              <li>Innovative 5G service offerings.</li>
+            </ul>
+            <div class="mt-4 flex gap-2">
+              <span class="text-xs font-semibold bg-blue-500/20 text-blue-800 dark:bg-blue-500/30 dark:text-blue-300 px-2 py-1 rounded-full">98.5% Coverage</span>
+            </div>
+          </div>
+          <div class="bg-background-light dark:bg-background-dark border-t-4 border-orange-500 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <h3 class="font-bold text-lg mb-3 text-black dark:text-white">Weaknesses</h3>
+            <ul class="space-y-2 text-sm text-black/80 dark:text-white/80 list-disc list-inside">
+              <li>Network congestion during peak hours.</li>
+              <li>Limited coverage in rural areas.</li>
+              <li>Higher than average customer service wait times.</li>
+            </ul>
+            <div class="mt-4 flex gap-2">
+              <span class="text-xs font-semibold bg-orange-500/20 text-orange-800 dark:bg-orange-500/30 dark:text-orange-300 px-2 py-1 rounded-full">25ms Latency</span>
+            </div>
+          </div>
+          <div class="bg-background-light dark:bg-background-dark border-t-4 border-purple-500 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <h3 class="font-bold text-lg mb-3 text-black dark:text-white">Opportunities</h3>
+            <ul class="space-y-2 text-sm text-black/80 dark:text-white/80 list-disc list-inside">
+              <li>Expansion into untapped rural markets.</li>
+              <li>Leveraging AI for network optimization.</li>
+              <li>Partnerships with IoT solution providers.</li>
+            </ul>
+            <div class="mt-4 flex gap-2">
+              <span class="text-xs font-semibold bg-purple-500/20 text-purple-800 dark:bg-purple-500/30 dark:text-purple-300 px-2 py-1 rounded-full">+0.2% Coverage Growth</span>
+            </div>
+          </div>
+          <div class="bg-background-light dark:bg-background-dark border-t-4 border-red-500 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <h3 class="font-bold text-lg mb-3 text-black dark:text-white">Threats</h3>
+            <ul class="space-y-2 text-sm text-black/80 dark:text-white/80 list-disc list-inside">
+              <li>Increased competition from rival providers.</li>
+              <li>Evolving cybersecurity threats.</li>
+              <li>Potential for disruptive regulatory changes.</li>
+            </ul>
+            <div class="mt-4 flex gap-2">
+              <span class="text-xs font-semibold bg-red-500/20 text-red-800 dark:bg-red-500/30 dark:text-red-300 px-2 py-1 rounded-full">-0.1% Drop Rate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="w-80 hidden lg:flex flex-col gap-6 flex-shrink-0">
+      <div class="bg-background-light dark:bg-background-dark p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold mb-4 text-black dark:text-white">AI Suggested Insights</h3>
+        <div class="space-y-5">
+          <div class="flex gap-4">
+            <div class="w-12 h-12 flex-shrink-0 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary">auto_awesome</span>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-black dark:text-white">Downtown network performance is 15% lower than city average.</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-xs font-bold text-primary">AI</span>
+                <span class="text-xs text-black/50 dark:text-white/50">Confidence: 92%</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-12 h-12 flex-shrink-0 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary">auto_awesome</span>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-black dark:text-white">Competitor X's latency is 10ms faster in suburban areas.</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-xs font-bold text-primary">AI</span>
+                <span class="text-xs text-black/50 dark:text-white/50">Confidence: 85%</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="w-12 h-12 flex-shrink-0 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary">auto_awesome</span>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-black dark:text-white">Customer sentiment decreased by 5% due to recent outages.</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-xs font-bold text-primary">AI</span>
+                <span class="text-xs text-black/50 dark:text-white/50">Confidence: 78%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<!-- Floating Chatbot (same as other pages) -->
+<button id="vf-chat-toggle"
+  class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[#ea2a33] text-white shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 flex items-center justify-center z-[60]"
+  aria-label="Open Insight Bot" title="Insight Bot">
+  <span class="material-symbols-outlined text-2xl">chat_bubble</span>
+</button>
+
+<div id="vf-chatbot"
+  class="fixed bottom-24 right-6 w-[360px] max-w-[92vw] rounded-lg shadow-lg border border-zinc-200/70 dark:border-zinc-700/60 bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-100 hidden z-[60]">
+  <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-200/70 dark:border-zinc-700/60">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-full bg-[#ea2a33] text-white flex items-center justify-center">
+        <span class="material-symbols-outlined text-[18px]">smart_toy</span>
+      </div>
+      <p class="font-semibold">Insight Bot</p>
+    </div>
+    <button id="vf-chat-close" class="p-1 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+
+  <div id="vf-chat-messages" class="h-64 overflow-y-auto px-4 py-3 space-y-3 bg-zinc-100/60 dark:bg-zinc-800/40">
+    <div class="flex gap-2">
+      <div class="w-6 h-6 rounded-full bg-[#ea2a33] text-white flex items-center justify-center mt-1">
+        <span class="material-symbols-outlined text-[14px]">smart_toy</span>
+      </div>
+      <div class="bg-white dark:bg-zinc-800 rounded-lg px-3 py-2 shadow-sm max-w-[80%]">
+        <p class="text-sm">Hi! Ask me about network insights, competitors, or navigation. Try “open reports”, “show statistics”, or “latest network KPIs”.</p>
+      </div>
+    </div>
+  </div>
+
+  <form id="vf-chat-form" class="flex items-center gap-2 p-3 border-t border-zinc-200/70 dark:border-zinc-700/60">
+    <input id="vf-chat-input" type="text" placeholder="Type your question…"
+      class="flex-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-300"/>
+    <button type="submit"
+      class="px-3 py-2 bg-[#ea2a33] hover:bg-red-600 text-white rounded-md text-sm font-semibold">
+      Send
+    </button>
+  </form>
+</div>
+
+<script>
+  (function () {
+    const toggleBtn = document.getElementById('vf-chat-toggle');
+    const panel = document.getElementById('vf-chatbot');
+    const closeBtn = document.getElementById('vf-chat-close');
+    const form = document.getElementById('vf-chat-form');
+    const input = document.getElementById('vf-chat-input');
+    const messages = document.getElementById('vf-chat-messages');
+
+    const KEY = 'vf-chat-history';
+    const history = JSON.parse(localStorage.getItem(KEY) || '[]');
+
+    function appendBubble(text, who = 'user') {
+      const wrap = document.createElement('div');
+      wrap.className = 'flex gap-2 ' + (who === 'user' ? 'justify-end' : '');
+      wrap.innerHTML = (who === 'user')
+        ? `<div class="bg-[#ea2a33] text-white rounded-lg px-3 py-2 shadow-sm max-w-[80%] text-sm">${text}</div>`
+        : `<div class="w-6 h-6 rounded-full bg-[#ea2a33] text-white flex items-center justify-center mt-1"><span class="material-symbols-outlined text-[14px]">smart_toy</span></div><div class="bg-white dark:bg-zinc-800 rounded-lg px-3 py-2 shadow-sm max-w-[80%] text-sm">${text}</div>`;
+      messages.appendChild(wrap);
+      messages.scrollTop = messages.scrollHeight;
+    }
+    function saveHistory() {
+      localStorage.setItem(KEY, JSON.stringify(history.slice(-20)));
+    }
+
+    if (history.length) history.forEach(item => appendBubble(item.text, item.who));
+
+    toggleBtn.addEventListener('click', () => {
+      panel.classList.toggle('hidden');
+      if (!panel.classList.contains('hidden')) setTimeout(() => input.focus(), 50);
+    });
+    closeBtn.addEventListener('click', () => panel.classList.add('hidden'));
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (input.value || '').trim();
+      if (!q) return;
+
+      appendBubble(q, 'user');
+      history.push({ who: 'user', text: q }); saveHistory();
+      input.value = '';
+
+      const lower = q.toLowerCase();
+      let reply = "I’m a demo bot. Try: “open reports”, “show statistics”, “open network”, “open market”, or “go home”.";
+      if (lower.includes('report')) reply = `Opening Reports… <a href="./Reports.html" class="text-[#ea2a33] underline">Reports.html</a>`;
+      else if (lower.includes('stat')) reply = `Opening Statistics… <a href="./statistics.html" class="text-[#ea2a33] underline">statistics.html</a>`;
+      else if (lower.includes('market')) reply = `Opening Market… <a href="./Market.html" class="text-[#ea2a33] underline">Market.html</a>`;
+      else if (lower.includes('network')) reply = `Opening Network… <a href="./Network.html" class="text-[#ea2a33] underline">Network.html</a>`;
+      else if (lower.includes('home')) reply = `Back to Home… <a href="./index.html" class="text-[#ea2a33] underline">index.html</a>`;
+
+      setTimeout(() => {
+        appendBubble(reply, 'bot');
+        history.push({ who: 'bot', text: reply }); saveHistory();
+      }, 250);
+    });
+  })();
+</script>
+
+</body>
+</html>

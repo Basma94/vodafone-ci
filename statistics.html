@@ -1,162 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vodafone CI — Statistics</title>
+<meta charset="utf-8"/>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Manrope%3Awght%40400%3B500%3B700%3B800&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 <script>
-tailwind.config = { theme: { extend: {
-  fontFamily:{ sans:['Manrope','ui-sans-serif','system-ui'] },
-  colors:{ primary:'#E60000', ink:'#0F172A', fog:'#6B7280', card:'#fff', bg:'#F6F7F9' },
-  boxShadow:{ soft:'0 8px 24px rgba(15,23,42,.06)' }
-}}}
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#ea2a33",
+          "background-light": "#f8f6f6",
+          "background-dark": "#211111",
+        },
+        fontFamily: {
+          display: ["Manrope"],
+        },
+        borderRadius: { DEFAULT: "1rem", lg: "2rem", xl: "3rem", full: "9999px" },
+      },
+    },
+  };
 </script>
-<style>
-  body{font-family:Manrope,system-ui,sans-serif}
-  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24}
-  .nav a.active{color:#E60000;font-weight:800}
-</style>
+<title>Vodafone CI Statistics</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
 </head>
-<body class="bg-bg text-ink">
-<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <svg class="w-7 h-7 text-primary" viewBox="0 0 48 48" fill="currentColor"><path d="M24 45.81A21.81 21.81 0 1 1 45.81 24H24z"/></svg>
-      <span class="font-extrabold">Vodafone CI</span>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="relative flex min-h-screen w-full flex-col">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-10 flex h-20 w-full items-center justify-between whitespace-nowrap border-b border-slate-200/80 bg-background-light/80 px-10 backdrop-blur-sm dark:border-slate-800/80 dark:bg-background-dark/80">
+    <div class="flex items-center gap-4">
+      <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+      </svg>
+      <h1 class="text-xl font-bold">Vodafone CI</h1>
     </div>
-    <nav class="nav hidden md:flex items-center gap-8 text-sm font-semibold text-slate-500">
-      <a href="./home.html">Home</a>
-      <a href="./insights.html">Insights</a>
-      <a href="./reports.html">Reports</a>
-      <a class="active" href="./statistics.html">Statistics</a>
+
+    <!-- NAV (updated links) -->
+    <nav class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <ul class="flex items-center gap-8">
+        <li><a class="text-sm font-medium hover:text-primary" href="./index.html">Home</a></li>
+        <li><a class="text-sm font-medium hover:text-primary" href="./Market.html">Market</a></li>
+        <li><a class="text-sm font-medium hover:text-primary" href="./Network.html">Network</a></li>
+        <li><a class="text-sm font-medium hover:text-primary" href="./Reports.html">Reports</a></li>
+        <li><a class="text-sm font-bold text-primary" href="./statistics.html">Statistics</a></li>
+      </ul>
     </nav>
-    <div class="flex items-center gap-2">
-      <button class="p-2 rounded-full hover:bg-slate-100"><span class="material-symbols-outlined">notifications</span></button>
-      <button class="p-2 rounded-full hover:bg-slate-100"><span class="material-symbols-outlined">settings</span></button>
-      <div class="w-9 h-9 rounded-full bg-slate-200 grid place-items-center"><span class="material-symbols-outlined text-slate-700">person</span></div>
+
+    <div class="flex items-center gap-4">
+      <button class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200/50 hover:bg-slate-300/50 dark:bg-slate-800/50 dark:hover:bg-slate-700/50">
+        <span class="material-symbols-outlined text-xl">notifications</span>
+      </button>
+      <button class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200/50 hover:bg-slate-300/50 dark:bg-slate-800/50 dark:hover:bg-slate-700/50">
+        <span class="material-symbols-outlined text-xl">settings</span>
+      </button>
+      <div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYoYnZa7psMJdTNccEkd1k6gRm4xypU8iGoVKxOoWnXrwPTrQH8fyKPB6wbiKE27DLm240M09N7hKndnxAq5KHEJLljrSX6qFARzZrJ-1rLuO485ViqaKEPqn78eVTPZ3N7fszhHq6Nf1ZdOEM9PQmUYCwh5GvfH0HKtNbeJ8uAEyxlCTEi-p4Eo5ftSHajlWsVVHVnqTV2TUueF1bomxM2XlUdpfidMd1RF0wRcsDKhcDpZC34gFPJqFoYSU9k-nuLaahN-Dp9hYC");'></div>
     </div>
-  </div>
-</header>
-
-<main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-  <h1 class="text-2xl font-extrabold mb-4">Statistics</h1>
-
-  <div class="flex flex-wrap items-center gap-2 mb-6">
-    <button class="rounded-full bg-white px-4 py-2 text-sm font-semibold hover:shadow">Last 30 Days</button>
-    <button class="rounded-full bg-white px-4 py-2 text-sm font-semibold hover:shadow">Roles: Exec / Analyst / Admin</button>
-    <button class="rounded-full bg-white px-4 py-2 text-sm font-semibold hover:shadow">Markets: Global, EU, Local</button>
-  </div>
-
-  <!-- User Adoption -->
-  <section class="mb-10">
-    <h2 class="text-xl font-extrabold mb-3">User Adoption & Logins</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Active Users</p><p class="text-3xl font-extrabold">1,234</p><p class="text-green-600 text-sm mt-1">+10%</p></div>
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Logins</p><p class="text-3xl font-extrabold">5,678</p><p class="text-red-600 text-sm mt-1">-5%</p></div>
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Avg. Session</p><p class="text-3xl font-extrabold">2h 30m</p><p class="text-green-600 text-sm mt-1">+15%</p></div>
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Adoption Rate</p><p class="text-3xl font-extrabold">85%</p><p class="text-green-600 text-sm mt-1">+2%</p></div>
-    </div>
-  </section>
-
-  <!-- Reports & Downloads -->
-  <section class="mb-10">
-    <h2 class="text-xl font-extrabold mb-3">Reports & Downloads</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Reports Generated</p><p class="text-3xl font-extrabold">345</p><p class="text-green-600 text-sm mt-1">+5%</p></div>
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Downloads</p><p class="text-3xl font-extrabold">789</p><p class="text-green-600 text-sm mt-1">+10%</p></div>
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Shares</p><p class="text-3xl font-extrabold">123</p><p class="text-red-600 text-sm mt-1">-2%</p></div>
-    </div>
-  </section>
-
-  <!-- Business Impact -->
-  <section class="mb-10">
-    <h2 class="text-xl font-extrabold mb-3">Business Impact (ROI)</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Time Saved (vs Manual)</p><p class="text-3xl font-extrabold">450 hrs</p><p class="text-green-600 text-sm mt-1">+20%</p></div>
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Reports Automated</p><p class="text-3xl font-extrabold">150</p><p class="text-fog text-sm">Manual reports replaced by AI</p></div>
-      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Estimated ROI</p><p class="text-3xl font-extrabold">€25,000</p><p class="text-fog text-sm">Savings this period</p></div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
-      <div class="bg-card rounded-xl p-6 shadow-soft">
-        <p class="font-semibold text-fog">Time Saved per Team (hrs)</p>
-        <div class="mt-4 grid h-48 grid-cols-3 items-end gap-8 px-4">
-          <div class="h-full flex flex-col justify-end"><div class="bg-primary/20 rounded-t h-3/4"></div><p class="text-center text-sm mt-2 text-fog">Network</p></div>
-          <div class="h-full flex flex-col justify-end"><div class="bg-primary/20 rounded-t h-[90%]"></div><p class="text-center text-sm mt-2 text-fog">Commercial</p></div>
-          <div class="h-full flex flex-col justify-end"><div class="bg-primary/20 rounded-t h-3/5"></div><p class="text-center text-sm mt-2 text-fog">Marketing</p></div>
-        </div>
-      </div>
-      <div class="bg-card rounded-xl p-6 shadow-soft">
-        <p class="font-semibold text-fog">ROI Growth Over Time (€)</p>
-        <div class="relative mt-4 h-48">
-          <svg class="absolute inset-0 h-full w-full" fill="none" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-            <path class="stroke-[2] stroke-red-200" d="M 0 130 C 50 100, 100 80, 150 50 C 200 20, 250 40, 300 20"></path>
-            <path class="stroke-[2] stroke-red-600" d="M 0 130 C 50 100, 100 80, 150 50"></path>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Geographic Adoption -->
-  <section class="mb-20">
-    <h2 class="text-xl font-extrabold mb-3">Geographic Adoption</h2>
-    <div class="bg-card rounded-xl p-4 shadow-soft">
-      <div class="aspect-video w-full rounded bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1529078155058-5d716f45d604?w=1600&q=80&auto=format&fit=crop')"></div>
-    </div>
-  </section>
-</main>
-
-<!-- FAB -->
-<button id="chatFab" title="Insight Bot" class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-white grid place-items-center shadow-lg hover:scale-105 transition">
-  <span class="material-symbols-outlined">chat_bubble</span>
-</button>
-<!-- Chatbot Panel -->
-<div id="chatOverlay" class="fixed inset-0 bg-black/30 hidden"></div>
-<aside id="chatPanel" class="fixed bottom-24 right-6 w-[380px] max-w-[92vw] bg-white rounded-2xl shadow-2xl border hidden">
-  <header class="h-12 px-4 flex items-center justify-between border-b">
-    <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">smart_toy</span><strong>Insight Bot</strong></div>
-    <button id="chatClose" class="p-1 rounded hover:bg-slate-100"><span class="material-symbols-outlined">close</span></button>
   </header>
-  <div id="chatBody" class="p-4 space-y-3 max-h-[50vh] overflow-auto">
-    <div class="text-sm text-slate-600">Hi! Ask me about trends, competitors, pricing, sentiment, or ROI.</div>
+
+  <!-- MAIN -->
+  <main class="flex flex-1">
+    <div class="flex-1 p-8">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="text-2xl font-bold">Statistics</h2>
+
+        <div class="my-6 flex flex-wrap items-center gap-3">
+          <button class="rounded-full bg-slate-200 px-4 py-2 text-sm font-medium shadow-sm transition-shadow hover:shadow-md dark:bg-slate-800">Date Range: Last 30 Days</button>
+          <button class="rounded-full bg-slate-200 px-4 py-2 text-sm font-medium shadow-sm transition-shadow hover:shadow-md dark:bg-slate-800">User Role: Executives, Analysts, Admins</button>
+          <button class="rounded-full bg-slate-200 px-4 py-2 text-sm font-medium shadow-sm transition-shadow hover:shadow-md dark:bg-slate-800">Market: Global, EU, Local</button>
+        </div>
+
+        <section class="mt-8">
+          <h3 class="text-xl font-bold">User Adoption &amp; Logins</h3>
+          <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Active Users</p>
+              <p class="text-3xl font-bold">1,234</p>
+              <p class="text-base font-medium text-green-500">+10%</p>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Logins</p>
+              <p class="text-3xl font-bold">5,678</p>
+              <p class="text-base font-medium text-red-500">-5%</p>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Avg. Session Duration</p>
+              <p class="text-3xl font-bold">2h 30m</p>
+              <p class="text-base font-medium text-green-500">+15%</p>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Adoption Rate</p>
+              <p class="text-3xl font-bold">85%</p>
+              <p class="text-base font-medium text-green-500">+2%</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mt-8">
+          <h3 class="text-xl font-bold">Engagement by Feature</h3>
+          <div class="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <h4 class="font-medium text-slate-600 dark:text-slate-400">Most Clicked Sections</h4>
+              <div class="mt-4 grid h-48 grid-flow-col items-end justify-items-center gap-4 px-3">
+                <div class="group relative w-full" style="height: 10%"><div class="w-full h-full bg-primary/20 rounded-t-lg transition-all group-hover:bg-primary/40"></div><div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-medium text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">10%</div></div>
+                <div class="group relative w-full" style="height: 100%"><div class="w-full h-full bg-primary/20 rounded-t-lg transition-all group-hover:bg-primary/40"></div><div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-medium text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">100%</div></div>
+                <div class="group relative w-full" style="height: 50%"><div class="w-full h-full bg-primary/20 rounded-t-lg transition-all group-hover:bg-primary/40"></div><div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-medium text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">50%</div></div>
+                <div class="group relative w-full" style="height: 80%"><div class="w-full h-full bg-primary/20 rounded-t-lg transition-all group-hover:bg-primary/40"></div><div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-medium text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">80%</div></div>
+                <div class="group relative w-full" style="height: 80%"><div class="w-full h-full bg-primary/20 rounded-t-lg transition-all group-hover:bg-primary/40"></div><div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-medium text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">80%</div></div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <h4 class="font-medium text-slate-600 dark:text-slate-400">Engagement by Day of Week / Hour</h4>
+              <div class="mt-4 grid h-48 grid-cols-7 gap-1">
+                <div class="group relative flex items-end"><div class="w-full bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20" style="height: 40%"></div><span class="absolute bottom-full mb-1 w-full text-center text-xs font-medium text-slate-500 dark:text-slate-400">Mon</span></div>
+                <div class="group relative flex items-end"><div class="w-full bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20" style="height: 60%"></div><span class="absolute bottom-full mb-1 w-full text-center text-xs font-medium text-slate-500 dark:text-slate-400">Tue</span></div>
+                <div class="group relative flex items-end"><div class="w-full bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20" style="height: 80%"></div><span class="absolute bottom-full mb-1 w-full text-center text-xs font-medium text-slate-500 dark:text-slate-400">Wed</span></div>
+                <div class="group relative flex items-end"><div class="w-full bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20" style="height: 90%"></div><span class="absolute bottom-full mb-1 w-full text-center text-xs font-medium text-slate-500 dark:text-slate-400">Thu</span></div>
+                <div class="group relative flex items-end"><div class="w-full bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20" style="height: 70%"></div><span class="absolute bottom-full mb-1 w-full text-center text-xs font-medium text-slate-500 dark:text-slate-400">Fri</span></div>
+                <div class="group relative flex items-end"><div class="w-full bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20" style="height: 20%"></div><span class="absolute bottom-full mb-1 w-full text-center text-xs font-medium text-slate-500 dark:text-slate-400">Sat</span></div>
+                <div class="group relative flex items-end"><div class="w-full bg-primary/10 rounded-lg transition-all group-hover:bg-primary/20" style="height: 10%"></div><span class="absolute bottom-full mb-1 w-full text-center text-xs font-medium text-slate-500 dark:text-slate-400">Sun</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mt-8">
+          <h3 class="text-xl font-bold">Reports &amp; Downloads</h3>
+          <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Reports Generated</p>
+              <p class="text-3xl font-bold">345</p>
+              <p class="text-base font-medium text-green-500">+5%</p>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Downloads</p>
+              <p class="text-3xl font-bold">789</p>
+              <p class="text-base font-medium text-green-500">+10%</p>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Shares</p>
+              <p class="text-3xl font-bold">123</p>
+              <p class="text-base font-medium text-red-500">-2%</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mt-8">
+          <h3 class="text-xl font-bold">Business Impact (ROI)</h3>
+          <div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Time Saved (vs Manual Research)</p>
+              <p class="text-3xl font-bold">450 hrs</p>
+              <p class="text-base font-medium text-green-500">+20%</p>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Reports Automated</p>
+              <p class="text-3xl font-bold">150</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Manual reports replaced by AI</p>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-base font-medium text-slate-600 dark:text-slate-400">Estimated ROI</p>
+              <p class="text-3xl font-bold">€25,000</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Calculated savings this period</p>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <h4 class="font-medium text-slate-600 dark:text-slate-400">Time Saved per Team (hrs)</h4>
+              <div class="mt-4 grid h-48 grid-cols-3 items-end justify-items-center gap-8 px-4">
+                <div class="group relative w-full h-full flex flex-col justify-end">
+                  <div class="bg-primary/20 rounded-t-lg transition-all group-hover:bg-primary/40" style="height: 75%"></div>
+                  <p class="mt-2 text-center text-sm font-medium text-slate-600 dark:text-slate-400">Network</p>
+                </div>
+                <div class="group relative w-full h-full flex flex-col justify-end">
+                  <div class="bg-primary/20 rounded-t-lg transition-all group-hover:bg-primary/40" style="height: 90%"></div>
+                  <p class="mt-2 text-center text-sm font-medium text-slate-600 dark:text-slate-400">Commercial</p>
+                </div>
+                <div class="group relative w-full h-full flex flex-col justify-end">
+                  <div class="bg-primary/20 rounded-t-lg transition-all group-hover:bg-primary/40" style="height: 60%"></div>
+                  <p class="mt-2 text-center text-sm font-medium text-slate-600 dark:text-slate-400">Marketing</p>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+              <h4 class="font-medium text-slate-600 dark:text-slate-400">ROI Growth Over Time (€)</h4>
+              <div class="relative mt-4 h-48">
+                <svg class="absolute inset-0 h-full w-full" fill="none" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+                  <path class="stroke-primary/20" d="M 0 130 C 50 100, 100 80, 150 50 C 200 20, 250 40, 300 20" stroke-width="2"></path>
+                  <path class="stroke-primary" d="M 0 130 C 50 100, 100 80, 150 50" stroke-width="2"></path>
+                </svg>
+                <div class="group absolute" style="left: 50%; top: 25%;">
+                  <div class="h-3 w-3 rounded-full bg-primary ring-4 ring-white dark:ring-slate-900"></div>
+                  <div class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block">
+                    <div class="rounded-md bg-slate-800 px-3 py-1.5 text-sm text-white shadow-lg dark:bg-slate-700">
+                      <p class="font-bold">€18,500</p>
+                      <p class="text-xs text-slate-300">July</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mt-8">
+          <h3 class="text-xl font-bold">Geographic Adoption</h3>
+          <div class="mt-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <div class="aspect-video w-full rounded bg-cover bg-center object-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbAgT87mZEz_fxqHoexNwAahDsSus3PmU4gyU-AHLZxc_j2G2bwvOibpRrP3-AosY6Eb-68TFIShOkXIy_ae2Rb_Np8--7GNf_guZ_JZnz-7cIiB4Ra2yQ9eVF9YGzNFxf-1sBbS1WoTHTPNtbmn3iKUm0mA84_SzL97VwWeRSlcg2fg9Av-247WTchoOOUAe8QoOvu9DTUOqynSzp2Zy8Q2ytolfITZBrjDg-lGiTm2zMR85l7JVa_iinMCnlQhEwkM_P-DbicKER");'></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <aside class="hidden w-80 flex-shrink-0 border-l border-slate-200/80 bg-background-light p-6 dark:border-slate-800/80 dark:bg-background-dark lg:block">
+      <div class="sticky top-24">
+        <h3 class="text-lg font-bold">Most Active Users</h3>
+        <div class="mt-4 space-y-2">
+          <div class="flex items-center gap-4 rounded-lg p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50">
+            <div class="h-12 w-12 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBM1aYG9DaNI08AokSayASfWLF_cdoYfLIhZkv4swXMo4amGDXTnKedeIV18smox8XEpqo3C9gtibcW8Xxh_q045h5L3szAKmSIu9uN9fB5TRUcrxvSGMOVAzxH1Mc8z_fmnoVc61KEIOCKaeqPkUV-iH95toT8gJSNRCwZjrmHUdzRPTKhoOUrfA1wHP5sS1YSQTzFt4i9W7HSb35cCvanYfbLgykpKIsWW6NsvWQQ86D5MJn5O26HHgrBt03XsGzGW431RAcuPYjI");'></div>
+            <div>
+              <p class="font-medium">Sophia Clark</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Analyst</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 rounded-lg p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50">
+            <div class="h-12 w-12 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWPimJb3s0neI_OnhSC5q39D-9crT3XiYxUJFFv0FmudKwDmgSC3OaQeRA0KFZad-Eaqc4WJHSyDSQpYsZTnJrrj8SsgIkxvB4Kn9r9fr9ijhv7dt3K_61SJPdsR6tul-jxeO4BOAzqa2PsJIRRznoauN_0hwkHF1CzORhZ5zbKje0FvbJhEQIlETrotb4UiLpVBFu_wCZi51xdWKdASNOOlga5iqnOAAj0mM1hDc75_UbGlwfIIHmBXIpHbWLjsu5Jpe2Ks9ncK0u");'></div>
+            <div>
+              <p class="font-medium">Ethan Bennett</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Executive</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 rounded-lg p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50">
+            <div class="h-12 w-12 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9ko1PLnH1Beg4NCGJKaIn1qoVyoPF2A3PM7pwRMD8dc8lpXwNsywXJsIbAL0PRcY5HD9KDWFvF9vCOaNhEYior0Noq3J3xmEW_7eMi5tIM_21fcfRv-EwCstBZdC1w-SxfjSrNpNVGfNNPpkNX_xGuNsXu0hKuPKc-Q7fBvTyvlD2vGaykxUr5okRoGbhVGyTCbtnsbG40Kn821duJC209AU700G5Tde_ZJiPMU6fMcjcV5xOfvd3awFEPorZWOxWiU4k01f2Eazu");'></div>
+            <div>
+              <p class="font-medium">Olivia Carter</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Admin</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 rounded-lg p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50">
+            <div class="h-12 w-12 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4YcIPVpp9-hyjNEHMCFn1I7nxCrLTaGAvSBiS7Bar0qnQI-tOqHu6Y8RTUdLwW35huSKDYA4Wt5ybY6SNyaiE-y07fVVLeiT6zcNoC4loKrM103CfsfW5iPVLXyJTZBa3xpjOGADIkEp6kxOiDSk4Sb6WtaZBALo8PeN0FTAcArLdJqnuzZL9I1P47xM-TY9WdutbiCL087WGD4zrFIzF5D8sbhlKLCF9H6hCt3lYbx8C0qVImq00q3B82-sbJgUEoevkMns5443M");'></div>
+            <div>
+              <p class="font-medium">Liam Harper</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Analyst</p>
+            </div>
+          </div>
+
+          <h3 class="mt-8 text-lg font-bold">Teams with Highest Adoption</h3>
+          <div class="mt-4 space-y-4">
+            <div class="group">
+              <div class="flex justify-between text-sm font-medium text-slate-600 dark:text-slate-400"><span>Marketing Team</span><span>95%</span></div>
+              <div class="mt-1 h-2 rounded-full bg-slate-200 dark:bg-slate-800"><div class="h-2 rounded-full bg-primary" style="width: 95%;"></div></div>
+            </div>
+            <div class="group">
+              <div class="flex justify-between text-sm font-medium text-slate-600 dark:text-slate-400"><span>Sales Team</span><span>90%</span></div>
+              <div class="mt-1 h-2 rounded-full bg-slate-200 dark:bg-slate-800"><div class="h-2 rounded-full bg-primary" style="width: 90%;"></div></div>
+            </div>
+            <div class="group">
+              <div class="flex justify-between text-sm font-medium text-slate-600 dark:text-slate-400"><span>Product Team</span><span>85%</span></div>
+              <div class="mt-1 h-2 rounded-full bg-slate-200 dark:bg-slate-800"><div class="h-2 rounded-full bg-primary" style="width: 85%;"></div></div>
+            </div>
+            <div class="group">
+              <div class="flex justify-between text-sm font-medium text-slate-600 dark:text-slate-400"><span>Finance Team</span><span>80%</span></div>
+              <div class="mt-1 h-2 rounded-full bg-slate-200 dark:bg-slate-800"><div class="h-2 rounded-full bg-primary" style="width: 80%;"></div></div>
+            </div>
+            <div class="group">
+              <div class="flex justify-between text-sm font-medium text-slate-600 dark:text-slate-400"><span>Operations Team</span><span>75%</span></div>
+              <div class="mt-1 h-2 rounded-full bg-slate-200 dark:bg-slate-800"><div class="h-2 rounded-full bg-primary" style="width: 75%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
   </div>
-  <form id="chatForm" class="p-3 border-t flex gap-2">
-    <input id="chatInput" autocomplete="off" placeholder="Type your question…" class="flex-1 rounded-full border-slate-300 focus:border-primary focus:ring-primary" />
-    <button class="px-4 rounded-full bg-primary text-white font-semibold">Send</button>
-  </form>
-</aside>
+
+  <!-- Floating Chatbot -->
+  <button id="vf-chat-toggle"
+    class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[#ea2a33] text-white shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 flex items-center justify-center z-[60]"
+    aria-label="Open Insight Bot" title="Insight Bot">
+    <span class="material-symbols-outlined text-2xl">chat_bubble</span>
+  </button>
+
+  <div id="vf-chatbot"
+    class="fixed bottom-24 right-6 w-[360px] max-w-[92vw] rounded-lg shadow-lg border border-zinc-200/70 dark:border-zinc-700/60 bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-100 hidden z-[60]">
+    <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-200/70 dark:border-zinc-700/60">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-full bg-[#ea2a33] text-white flex items-center justify-center">
+          <span class="material-symbols-outlined text-[18px]">smart_toy</span>
+        </div>
+        <p class="font-semibold">Insight Bot</p>
+      </div>
+      <button id="vf-chat-close" class="p-1 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <div id="vf-chat-messages" class="h-64 overflow-y-auto px-4 py-3 space-y-3 bg-zinc-100/60 dark:bg-zinc-800/40">
+      <div class="flex gap-2">
+        <div class="w-6 h-6 rounded-full bg-[#ea2a33] text-white flex items-center justify-center mt-1">
+          <span class="material-symbols-outlined text-[14px]">smart_toy</span>
+        </div>
+        <div class="bg-white dark:bg-zinc-800 rounded-lg px-3 py-2 shadow-sm max-w-[80%]">
+          <p class="text-sm">Hi! Ask me about statistics, reports, or navigation. Try “open market”, “open network”, or “go home”.</p>
+        </div>
+      </div>
+    </div>
+
+    <form id="vf-chat-form" class="flex items-center gap-2 p-3 border-t border-zinc-200/70 dark:border-zinc-700/60">
+      <input id="vf-chat-input" type="text" placeholder="Type your question…"
+        class="flex-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-300"/>
+      <button type="submit"
+        class="px-3 py-2 bg-[#ea2a33] hover:bg-red-600 text-white rounded-md text-sm font-semibold">
+        Send
+      </button>
+    </form>
+  </div>
+
+</div> <!-- /root container -->
+
 <script>
-(() => {
-  const qs = s=>document.querySelector(s);
-  const fab = qs('#chatFab'), overlay=qs('#chatOverlay'), panel=qs('#chatPanel'), closeBtn=qs('#chatClose');
-  const body=qs('#chatBody'), form=qs('#chatForm'), input=qs('#chatInput');
-  const open = () => { overlay.classList.remove('hidden'); panel.classList.remove('hidden'); input.focus(); };
-  const close = () => { overlay.classList.add('hidden'); panel.classList.add('hidden'); };
-  fab.addEventListener('click', open); closeBtn.addEventListener('click', close); overlay.addEventListener('click', close);
-  window.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
-  function addMsg(text, role='user'){
-    const wrap=document.createElement('div'); wrap.className=role==='user'?'flex justify-end':'flex justify-start';
-    const bubble=document.createElement('div'); bubble.className='max-w-[80%] rounded-2xl px-3.5 py-2 text-sm '+(role==='user'?'bg-primary text-white':'bg-slate-100');
-    bubble.textContent=text; wrap.appendChild(bubble); body.appendChild(wrap); body.scrollTop=body.scrollHeight;
-  }
-  function reply(q){
-    const t=q.toLowerCase();
-    if(t.includes('trend')) return 'Top trends: eSIM +25% MoM; 5G+ intensifies in DE; rural buildouts in IT.';
-    if(t.includes('competitor')) return 'A: urban 5G rollout; B: family pricing; C: rural coverage push.';
-    if(t.includes('pricing')) return 'Our blended plan ~15% below peers; monitor UK bundles.';
-    if(t.includes('sentiment')) return 'Competitor sentiment index 6.5 (↑0.2 vs last period).';
-    if(t.includes('roi')) return 'ROI ≈ €25k this period; ~450 hours saved.';
-    return 'Try filtering the dashboard (top chips) for more targeted usage insights.';
-  }
-  qs('#chatForm').addEventListener('submit', e=>{
-    e.preventDefault(); const q=input.value.trim(); if(!q) return;
-    addMsg(q,'user'); input.value=''; setTimeout(()=>addMsg(reply(q),'bot'),250);
-  });
-})();
+  (function () {
+    const toggleBtn = document.getElementById('vf-chat-toggle');
+    const panel = document.getElementById('vf-chatbot');
+    const closeBtn = document.getElementById('vf-chat-close');
+    const form = document.getElementById('vf-chat-form');
+    const input = document.getElementById('vf-chat-input');
+    const messages = document.getElementById('vf-chat-messages');
+
+    const KEY = 'vf-chat-history';
+    const history = JSON.parse(localStorage.getItem(KEY) || '[]');
+
+    function appendBubble(text, who = 'user') {
+      const wrap = document.createElement('div');
+      wrap.className = 'flex gap-2 ' + (who === 'user' ? 'justify-end' : '');
+      wrap.innerHTML = (who === 'user')
+        ? `<div class="bg-[#ea2a33] text-white rounded-lg px-3 py-2 shadow-sm max-w-[80%] text-sm">${text}</div>`
+        : `<div class="w-6 h-6 rounded-full bg-[#ea2a33] text-white flex items-center justify-center mt-1"><span class="material-symbols-outlined text-[14px]">smart_toy</span></div><div class="bg-white dark:bg-zinc-800 rounded-lg px-3 py-2 shadow-sm max-w-[80%] text-sm">${text}</div>`;
+      messages.appendChild(wrap);
+      messages.scrollTop = messages.scrollHeight;
+    }
+    function saveHistory() { localStorage.setItem(KEY, JSON.stringify(history.slice(-20))); }
+
+    if (history.length) history.forEach(item => appendBubble(item.text, item.who));
+
+    toggleBtn.addEventListener('click', () => {
+      panel.classList.toggle('hidden');
+      if (!panel.classList.contains('hidden')) setTimeout(() => input.focus(), 50);
+    });
+    closeBtn.addEventListener('click', () => panel.classList.add('hidden'));
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (input.value || '').trim();
+      if (!q) return;
+
+      appendBubble(q, 'user');
+      history.push({ who: 'user', text: q }); saveHistory();
+      input.value = '';
+
+      const lower = q.toLowerCase();
+      let reply = "I’m a demo bot. Try: “open network”, “open market”, “open reports”, or “go home”.";
+      if (lower.includes('stat')) reply = `You're on Statistics. Need something specific?`;
+      if (lower.includes('report')) reply = `Opening Reports… <a href="./Reports.html" class="text-[#ea2a33] underline">Reports.html</a>`;
+      else if (lower.includes('market')) reply = `Opening Market… <a href="./Market.html" class="text-[#ea2a33] underline">Market.html</a>`;
+      else if (lower.includes('network')) reply = `Opening Network… <a href="./Network.html" class="text-[#ea2a33] underline">Network.html</a>`;
+      else if (lower.includes('home')) reply = `Back to Home… <a href="./index.html" class="text-[#ea2a33] underline">index.html</a>`;
+
+      setTimeout(() => {
+        appendBubble(reply, 'bot');
+        history.push({ who: 'bot', text: reply }); saveHistory();
+      }, 250);
+    });
+  })();
 </script>
+
 </body>
 </html>

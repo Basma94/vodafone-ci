@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vodafone CI Dashboard - Executive Briefing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "vodafone-red": "#E60000",
+                        "soft-gray": "#F5F5F5",
+                        "dark-gray": "#1A1A1A",
+                        "medium-gray": "#666666",
+                        "light-gray": "#E0E0E0",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#121212",
+                        "tint-blue": "rgba(230, 247, 255, 0.6)",
+                        "tint-green": "rgba(246, 255, 237, 0.6)",
+                        "tint-yellow": "rgba(255, 251, 230, 0.6)",
+                        "chip-light-bg": "#EEEEEE",
+                        "chip-dark-bg": "#333333",
+                    },
+                    fontFamily: {
+                        display: ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                        lg: "16px",
+                        full: "9999px",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 12px rgba(0, 0, 0, 0.05)',
+                        'soft-lg': '0 8px 16px rgba(0, 0, 0, 0.08)',
+                        'red-glow': '0 0 12px 2px rgba(230, 0, 0, 0.3)',
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav {
+            color: #E60000;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-dark-gray dark:text-light-gray">
+<div class="flex flex-col min-h-screen">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-dark-gray/95 backdrop-blur-sm">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-18">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="#E60000"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold text-dark-gray dark:text-white">Vodafone CI</h1>
+</div>
+<nav class="hidden md:flex items-center space-x-8 lg:space-x-10">
+<a class="text-sm font-semibold text-vodafone-red" href="./index.html">Home</a>
+<a class="text-sm font-semibold text-medium-gray dark:text-light-gray/80 hover:text-vodafone-red dark:hover:text-vodafone-red transition-colors" href="./Market.html">Market</a>
+<a class="text-sm font-semibold text-medium-gray dark:text-light-gray/80 hover:text-vodafone-red dark:hover:text-vodafone-red transition-colors" href="./Network.html">Network</a>
+<a class="text-sm font-semibold text-medium-gray dark:text-light-gray/80 hover:text-vodafone-red dark:hover:text-vodafone-red transition-colors" href="./Reports.html">Reports</a>
+<a class="text-sm font-semibold text-medium-gray dark:text-light-gray/80 hover:text-vodafone-red dark:hover:text-vodafone-red transition-colors" href="./statistics.html">Statistics</a>
+</nav>
+<div class="flex items-center gap-2 sm:gap-4">
+<button class="p-2 rounded-full text-medium-gray dark:text-light-gray hover:bg-soft-gray dark:hover:bg-dark-gray/70 focus:outline-none focus:ring-2 focus:ring-vodafone-red/50" title="Notifications">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full text-medium-gray dark:text-light-gray hover:bg-soft-gray dark:hover:bg-dark-gray/70 focus:outline-none focus:ring-2 focus:ring-vodafone-red/50" title="Settings">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-9 h-9 rounded-full bg-light-gray dark:ring-medium-gray ring-2 ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark flex items-center justify-center" title="User Profile">
+<span class="material-symbols-outlined text-medium-gray dark:text-light-gray">person</span>
+</div>
+</div>
+</div>
+<div class="h-px bg-light-gray/60 dark:bg-medium-gray/40"></div>
+</div>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow pt-24">
+<div class="space-y-16 pt-10">
+<section>
+<h2 class="text-3xl font-bold text-dark-gray dark:text-white mb-8">Highlights</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-dark-gray p-6 rounded-lg shadow-soft border-t-4 border-vodafone-red transition-all duration-300 hover:shadow-soft-lg hover:-translate-y-1">
+<div class="flex items-center justify-between mb-2">
+<p class="text-sm font-medium text-medium-gray dark:text-light-gray">New Items Today</p>
+<span class="material-symbols-outlined text-2xl text-vodafone-red">article</span>
+</div>
+<p class="text-4xl font-bold text-dark-gray dark:text-white">128</p>
+</div>
+<div class="bg-white dark:bg-dark-gray p-6 rounded-lg shadow-soft border-t-4 border-vodafone-red transition-all duration-300 hover:shadow-soft-lg hover:-translate-y-1">
+<div class="flex items-center justify-between mb-2">
+<p class="text-sm font-medium text-medium-gray dark:text-light-gray">Key Trends</p>
+<span class="material-symbols-outlined text-2xl text-vodafone-red">insights</span>
+</div>
+<p class="text-4xl font-bold text-dark-gray dark:text-white">5</p>
+</div>
+<div class="bg-white dark:bg-dark-gray p-6 rounded-lg shadow-soft border-t-4 border-vodafone-red transition-all duration-300 hover:shadow-soft-lg hover:-translate-y-1">
+<div class="flex items-center justify-between mb-2">
+<p class="text-sm font-medium text-medium-gray dark:text-light-gray">Competitors Mentioned</p>
+<span class="material-symbols-outlined text-2xl text-vodafone-red">apartment</span>
+</div>
+<p class="text-4xl font-bold text-dark-gray dark:text-white">8</p>
+</div>
+<div class="bg-white dark:bg-dark-gray p-6 rounded-lg shadow-soft border-t-4 border-vodafone-red transition-all duration-300 hover:shadow-soft-lg hover:-translate-y-1">
+<div class="flex items-center justify-between mb-2">
+<p class="text-sm font-medium text-medium-gray dark:text-light-gray">Sentiment Score</p>
+<span class="material-symbols-outlined text-2xl text-vodafone-red">sentiment_satisfied</span>
+</div>
+<p class="text-4xl font-bold text-dark-gray dark:text-white">7.9</p>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-3xl font-bold text-dark-gray dark:text-white mb-8">News Feed</h2>
+<div class="space-y-4">
+<div class="bg-white dark:bg-dark-gray rounded-lg shadow-soft overflow-hidden flex transition-all duration-300 hover:shadow-soft-lg group cursor-pointer">
+<div class="w-48 flex-shrink-0">
+<img alt="Competitor X 5G network visualization" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoN80IKGMhHCFjl8HuEtGyPj2GEqpjfgvBHi6c2zzWlb_4scOpXxM1ZDIq-nGIdrzj3MwQFAXk4AFYKlHf4G6wVVARu9Gw01GamkXYkiR0pZGL1IULdAI0Gi1cyH-rA87y9r4UgFv9I1Sw7UzWNFrhFCiCLeoDhOvC0VjXi6OZLoIt0AdTx9IRCuWPH5HBMt7Hh53NHnizeRygVpQzClYxFreGR-iBv105NfugYh2H-5slbicSufh9SRgAGXIAbctPRehboH8YYoNi"/>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1">
+<div>
+<h3 class="text-md font-bold text-dark-gray dark:text-white">Competitor X Launches "5G+" in Germany</h3>
+<p class="mt-1 text-sm text-medium-gray dark:text-light-gray/90 leading-normal line-clamp-2">A detailed analysis of Competitor X's new "5G+" service launch in Germany, focusing on claimed network speeds and potential market impact.</p>
+<div class="flex flex-wrap items-center gap-2 mt-3">
+<span class="font-semibold text-xs text-dark-gray dark:text-white bg-chip-light-bg dark:bg-chip-dark-bg px-2.5 py-1 rounded-full">Germany</span>
+<span class="font-semibold text-xs text-dark-gray dark:text-white bg-chip-light-bg dark:bg-chip-dark-bg px-2.5 py-1 rounded-full">5G</span>
+<span class="font-semibold text-xs text-dark-gray dark:text-white bg-chip-light-bg dark:bg-chip-dark-bg px-2.5 py-1 rounded-full">Network</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-light-gray/50 dark:border-medium-gray/30">
+<div class="text-xs text-medium-gray dark:text-light-gray/70">
+<span class="font-semibold">TechSource</span> / <span>2 days ago</span>
+</div>
+<a class="text-sm font-semibold text-vodafone-red hover:underline group-hover:underline" href="#">View Source →</a>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-dark-gray rounded-lg shadow-soft overflow-hidden flex transition-all duration-300 hover:shadow-soft-lg group cursor-pointer">
+<div class="w-48 flex-shrink-0">
+<img alt="Smartphone displaying pricing plans" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo2D5fDxWMBunZaLG9xZakGiRGInG7WTzwIFOybjiYWjCmsK_NY595XENHJGhdrkv5gL2lBEEdaSskvqx4tmHppuQVli9YhrSVjl9SkcSVscFHswQp3Gd_COiRT1b3uUJ8kA5EjVIk-i9LR47rijKV0xpbWOJir6-uJaS5WRGdrG3LLtCqDJ6CQcgUaC8BUSXR9p7tl9yrNSgjhhT2vaZ9BZI4J1gpnPIyiDjPJYUHut4Hbr9AYwXkhrJ098b3UjToNghvgyZpTYXM"/>
+</div>
+<div class="p-4 flex flex-col justify-between flex-1">
+<div>
+<h3 class="text-md font-bold text-dark-gray dark:text-white">Competitor Y Unveils New "Family Plan" Pricing in UK</h3>
+<p class="mt-1 text-sm text-medium-gray dark:text-light-gray/90 leading-normal line-clamp-2">Competitor Y has introduced a multi-line family plan, aiming to increase their subscriber base by targeting households in the UK market.</p>
+<div class="flex flex-wrap items-center gap-2 mt-3">
+<span class="font-semibold text-xs text-dark-gray dark:text-white bg-chip-light-bg dark:bg-chip-dark-bg px-2.5 py-1 rounded-full">UK</span>
+<span class="font-semibold text-xs text-dark-gray dark:text-white bg-chip-light-bg dark:bg-chip-dark-bg px-2.5 py-1 rounded-full">Pricing</span>
+<span class="font-semibold text-xs text-dark-gray dark:text-white bg-chip-light-bg dark:bg-chip-dark-bg px-2.5 py-1 rounded-full">Strategy</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-light-gray/50 dark:border-medium-gray/30">
+<div class="text-xs text-medium-gray dark:text-light-gray/70">
+<span class="font-semibold">MarketWatch</span> / <span>3 days ago</span>
+</div>
+<a class="text-sm font-semibold text-vodafone-red hover:underline group-hover:underline" href="#">View Source →</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-6">
+<button class="bg-soft-gray dark:bg-dark-gray/60 hover:bg-light-gray/80 dark:hover:bg-medium-gray/60 text-dark-gray dark:text-white font-semibold py-2.5 px-6 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-vodafone-red/50">
+                                Show More
+                            </button>
+</div>
+</div>
+</section>
+<section class="mt-24">
+<h2 class="text-3xl font-bold text-dark-gray dark:text-white mb-8">AI Top 3 Insights</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-tint-blue dark:bg-blue-900/30 p-6 rounded-lg shadow-soft flex items-start gap-4 transition-all duration-300 hover:shadow-soft-lg hover:scale-[1.03]">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400 text-3xl mt-1">signal_cellular_alt</span>
+<p class="text-dark-gray dark:text-light-gray/95"><strong>Implication:</strong> Competitor X's "5G+" performance claims in urban German centers could pressure our network marketing strategy.</p>
+</div>
+<div class="bg-tint-green dark:bg-green-900/30 p-6 rounded-lg shadow-soft flex items-start gap-4 transition-all duration-300 hover:shadow-soft-lg hover:scale-[1.03]">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 text-3xl mt-1">groups</span>
+<p class="text-dark-gray dark:text-light-gray/95"><strong>Implication:</strong> The new family plan from Competitor Y in the UK may attract high-value, low-churn customer segments.</p>
+</div>
+<div class="bg-tint-yellow dark:bg-yellow-900/30 p-6 rounded-lg shadow-soft flex items-start gap-4 transition-all duration-300 hover:shadow-soft-lg hover:scale-[1.03]">
+<span class="material-symbols-outlined text-yellow-600 dark:text-yellow-400 text-3xl mt-1">construction</span>
+<p class="text-dark-gray dark:text-light-gray/95"><strong>Implication:</strong> Competitor Z's increased investment in rural infrastructure in Italy suggests a focus on underserved markets.</p>
+</div>
+</div>
+</section>
+<section class="mt-24">
+<h2 class="text-3xl font-bold text-dark-gray dark:text-white mb-8">Quick Links</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<a class="block bg-white dark:bg-dark-gray p-6 rounded-lg shadow-soft transition-all duration-300 hover:shadow-red-glow border-2 border-transparent text-center group" href="#">
+<span class="material-symbols-outlined text-4xl text-vodafone-red mb-4">assessment</span>
+<h3 class="text-lg font-bold text-black dark:text-white">Full Market Report</h3>
+<p class="text-sm text-medium-gray dark:text-light-gray/80 mt-1 mb-6">Dive into detailed analytics.</p>
+<span class="font-semibold text-sm text-vodafone-red group-hover:underline">Go to Dashboard →</span>
+</a>
+<a class="block bg-white dark:bg-dark-gray p-6 rounded-lg shadow-soft transition-all duration-300 hover:shadow-soft-lg hover:-translate-y-1 text-center group" href="#">
+<span class="material-symbols-outlined text-4xl text-vodafone-red mb-4">add_alert</span>
+<h3 class="text-lg font-bold text-black dark:text-white">Create Custom Alert</h3>
+<p class="text-sm text-medium-gray dark:text-light-gray/80 mt-1 mb-6">Get notified on specific topics.</p>
+<span class="font-semibold text-sm text-vodafone-red group-hover:underline">Set Up Alert →</span>
+</a>
+<a class="block bg-white dark:bg-dark-gray p-6 rounded-lg shadow-soft transition-all duration-300 hover:shadow-soft-lg hover:-translate-y-1 text-center group" href="#">
+<span class="material-symbols-outlined text-4xl text-vodafone-red mb-4">share</span>
+<h3 class="text-lg font-bold text-black dark:text-white">Share Executive Brief</h3>
+<p class="text-sm text-medium-gray dark:text-light-gray/80 mt-1 mb-6">Generate a shareable summary.</p>
+<span class="font-semibold text-sm text-vodafone-red group-hover:underline">Export Now →</span>
+</a>
+</div>
+</section>
+</div>
+</main>
+</div>
+
+<!-- ========== Insight Bot (Floating Chat) ========== -->
+<button id="vf-chat-toggle"
+  class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-vodafone-red text-white shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 flex items-center justify-center z-[60]"
+  aria-label="Open Insight Bot" title="Insight Bot">
+  <span class="material-symbols-outlined text-2xl">chat_bubble</span>
+</button>
+
+<div id="vf-chatbot"
+  class="fixed bottom-24 right-6 w-[360px] max-w-[92vw] rounded-lg shadow-soft-lg border border-light-gray/60 bg-white dark:bg-dark-gray text-dark-gray dark:text-light-gray hidden z-[60]">
+  <div class="flex items-center justify-between px-4 py-3 border-b border-light-gray/60 dark:border-medium-gray/40">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-full bg-vodafone-red text-white flex items-center justify-center">
+        <span class="material-symbols-outlined text-[18px]">smart_toy</span>
+      </div>
+      <p class="font-semibold">Insight Bot</p>
+    </div>
+    <button id="vf-chat-close" class="p-1 rounded hover:bg-soft-gray dark:hover:bg-zinc-800">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+
+  <div id="vf-chat-messages" class="h-64 overflow-y-auto px-4 py-3 space-y-3 bg-soft-gray/60 dark:bg-zinc-900/40">
+    <div class="flex gap-2">
+      <div class="w-6 h-6 rounded-full bg-vodafone-red text-white flex items-center justify-center mt-1">
+        <span class="material-symbols-outlined text-[14px]">smart_toy</span>
+      </div>
+      <div class="bg-white dark:bg-zinc-800 rounded-lg px-3 py-2 shadow-sm max-w-[80%]">
+        <p class="text-sm">Hi! Ask me about market insights, competitors, or where to find things. Try “open reports”, “show statistics”, or “latest network news”.</p>
+      </div>
+    </div>
+  </div>
+
+  <form id="vf-chat-form" class="flex items-center gap-2 p-3 border-t border-light-gray/60 dark:border-medium-gray/40">
+    <input id="vf-chat-input" type="text" placeholder="Type your question…"
+      class="flex-1 rounded-md border border-light-gray/70 dark:border-medium-gray/50 bg-white dark:bg-zinc-800 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-300"/>
+    <button type="submit"
+      class="px-3 py-2 bg-vodafone-red hover:bg-red-600 text-white rounded-md text-sm font-semibold">
+      Send
+    </button>
+  </form>
+</div>
+
+<script>
+  (function () {
+    const toggleBtn = document.getElementById('vf-chat-toggle');
+    const panel = document.getElementById('vf-chatbot');
+    const closeBtn = document.getElementById('vf-chat-close');
+    const form = document.getElementById('vf-chat-form');
+    const input = document.getElementById('vf-chat-input');
+    const messages = document.getElementById('vf-chat-messages');
+
+    const KEY = 'vf-chat-history';
+    const history = JSON.parse(localStorage.getItem(KEY) || '[]');
+
+    function appendBubble(text, who = 'user') {
+      const wrap = document.createElement('div');
+      wrap.className = 'flex gap-2 ' + (who === 'user' ? 'justify-end' : '');
+      wrap.innerHTML = (who === 'user')
+        ? `<div class="bg-vodafone-red text-white rounded-lg px-3 py-2 shadow-sm max-w-[80%] text-sm">${text}</div>`
+        : `<div class="w-6 h-6 rounded-full bg-vodafone-red text-white flex items-center justify-center mt-1"><span class="material-symbols-outlined text-[14px]">smart_toy</span></div><div class="bg-white dark:bg-zinc-800 rounded-lg px-3 py-2 shadow-sm max-w-[80%] text-sm">${text}</div>`;
+      messages.appendChild(wrap);
+      messages.scrollTop = messages.scrollHeight;
+    }
+    function saveHistory() {
+      localStorage.setItem(KEY, JSON.stringify(history.slice(-20)));
+    }
+
+    if (history.length) history.forEach(item => appendBubble(item.text, item.who));
+
+    toggleBtn.addEventListener('click', () => {
+      panel.classList.toggle('hidden');
+      if (!panel.classList.contains('hidden')) setTimeout(() => input.focus(), 50);
+    });
+    closeBtn.addEventListener('click', () => panel.classList.add('hidden'));
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (input.value || '').trim();
+      if (!q) return;
+
+      appendBubble(q, 'user');
+      history.push({ who: 'user', text: q }); saveHistory();
+      input.value = '';
+
+      const lower = q.toLowerCase();
+      let reply = "I’m a demo bot. Try: “open reports”, “show statistics”, “open market”, “open network”, or “go home”.";
+      if (lower.includes('report')) reply = `Opening Reports… <a href="./Reports.html" class="text-vodafone-red underline">Reports.html</a>`;
+      else if (lower.includes('stat')) reply = `Opening Statistics… <a href="./statistics.html" class="text-vodafone-red underline">statistics.html</a>`;
+      else if (lower.includes('market')) reply = `Opening Market… <a href="./Market.html" class="text-vodafone-red underline">Market.html</a>`;
+      else if (lower.includes('network')) reply = `Opening Network… <a href="./Network.html" class="text-vodafone-red underline">Network.html</a>`;
+      else if (lower.includes('home')) reply = `Back to Home… <a href="./index.html" class="text-vodafone-red underline">index.html</a>`;
+
+      setTimeout(() => {
+        appendBubble(reply, 'bot');
+        history.push({ who: 'bot', text: reply }); saveHistory();
+      }, 250);
+    });
+  })();
+</script>
+<!-- ========== /Insight Bot ========== -->
+
+</body></html>

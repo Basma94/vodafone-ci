@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vodafone CI Reports</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#ea2a33",
+          "background-light": "#f8f6f6",
+          "background-dark": "#211111",
+          "grey-light": "#e5e7eb",
+          "grey-dark": "#4b5563"
+        },
+        fontFamily: { "display": ["Manrope", "sans-serif"] },
+        borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24
+  }
+</style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-black dark:text-white">
+<div class="flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-background-dark shadow-sm">
+    <div class="mx-auto flex h-20 items-center justify-between px-6 lg:px-10">
+      <div class="flex items-center gap-4">
+        <svg fill="none" height="32" viewBox="0 0 48 48" width="32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="#ea2a33"></path>
+        </svg>
+        <h1 class="text-xl font-bold text-black dark:text-white">Vodafone CI</h1>
+      </div>
+
+      <!-- NAV (updated links) -->
+      <nav class="hidden items-center gap-8 md:flex">
+        <a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary" href="./index.html">Home</a>
+        <a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary" href="./Market.html">Market</a>
+        <a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary" href="./Network.html">Network</a>
+        <a class="text-sm font-medium text-primary" href="./Reports.html">Reports</a>
+        <a class="text-sm font-medium text-black/60 dark:text-white/60 hover:text-primary" href="./statistics.html">Statistics</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button class="rounded-full p-2 hover:bg-primary/10">
+          <span class="material-symbols-outlined text-black dark:text-white">notifications</span>
+        </button>
+        <button class="rounded-full p-2 hover:bg-primary/10">
+          <span class="material-symbols-outlined text-black dark:text-white">settings</span>
+        </button>
+        <div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBRjfXN3_XtqDbJbJujV0mo_RUvLG2D2Im-o9w7Qrjn1flAlv9Vbb4Htdvst017pFN-iPzf3FnsQbxOg78QLIQ6ImkzHArSXVKcl3tZ6IzcHcDtH-8UHJg82u6qO1cmhfOs5PLFuXzbsdztfY4pvvsFLQ_8epp4cxgCBI4at6sljrD1cT6o23KhZfqGx3RwnUIOztzbrB2-vVEHboKaZ8z03cPlEiJG7td0IgazJYnZJgYYRUW--A1-dGKi6Diu-ZLFQQfbyrOLAItd");'></div>
+      </div>
+    </div>
+    <div class="h-px bg-black/10 dark:bg-white/10"></div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow pt-20">
+    <div class="mx-auto grid max-w-screen-2xl grid-cols-12 gap-8 px-6 lg:px-10 py-8">
+      <div class="col-span-12 lg:col-span-9">
+
+        <div class="mb-6 flex flex-wrap items-center gap-2">
+          <button class="flex items-center gap-2 rounded-full bg-grey-light dark:bg-grey-dark px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600">
+            <span>Market: Global</span><span class="material-symbols-outlined text-sm">expand_more</span>
+          </button>
+          <button class="flex items-center gap-2 rounded-full bg-grey-light dark:bg-grey-dark px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600">
+            <span>Topics</span><span class="material-symbols-outlined text-sm">expand_more</span>
+          </button>
+          <button class="flex items-center gap-2 rounded-full bg-grey-light dark:bg-grey-dark px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600">
+            <span>Date Range</span><span class="material-symbols-outlined text-sm">expand_more</span>
+          </button>
+          <button class="flex items-center gap-2 rounded-full bg-grey-light dark:bg-grey-dark px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600">
+            <span>Report Type: Saved</span><span class="material-symbols-outlined text-sm">expand_more</span>
+          </button>
+        </div>
+
+        <section class="mb-12">
+          <h2 class="mb-4 text-2xl font-bold">Saved Reports</h2>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <div class="group transform-gpu cursor-pointer rounded-lg bg-white dark:bg-background-dark/50 p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+              <div class="relative mb-4 w-full aspect-video rounded-md bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZjP8PNrlzVfx6sZInbOL8VYrhpM7RWPmrKXGSFvLN-tET31r7_VztUYuNSLypCmzgGmYG7D1f__uUiYB-j7Se13MwP1SQgqm567CuUDZ048HHNkP9b3CPCKFmtpalwwoENSA8-hQ3r4xRIGVimF64q4WjqC6ihbqoIzEb-QW0gm6ccRu-GUEmkLsLmushO9BPitmuyfP15hXgAtPrGZwbj7J_XYELPBHa8PF7XUkm1YMZsu4tTkQbkSxvI39YfBHsm83VJBPd5MIC");'></div>
+              <h3 class="font-bold">Market Trends in Europe</h3>
+              <p class="mt-1 text-sm text-black/60 dark:text-white/60">Comprehensive report on market trends in Europe.</p>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="rounded-full bg-grey-light dark:bg-grey-dark px-2 py-1 text-xs font-medium text-black dark:text-white">Europe</span>
+                <span class="rounded-full bg-grey-light dark:bg-grey-dark px-2 py-1 text-xs font-medium text-black dark:text-white">Market Trends</span>
+              </div>
+              <p class="mt-3 text-xs text-black/50 dark:text-white/50">Created by Alex, Last Updated: 2024-01-15</p>
+              <div class="mt-4 flex items-center justify-end gap-2">
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined text-base">open_in_new</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined text-base">download</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined text-base">share</span></button>
+              </div>
+            </div>
+
+            <div class="group transform-gpu cursor-pointer rounded-lg bg-white dark:bg-background-dark/50 p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+              <div class="relative mb-4 w-full aspect-video rounded-md bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmrAx84kRz6A2fVtJN3zzNOLWdIBmr2vXPiLu54V-54SYbb4lhpWOWfBQ5NnDAra8OrAzlW80qHwe5qbqWdGwMEpIymaeHanVMywAShJgd4POmz5xD_SHusWt2tf9phb_reIwBypmXsYRMEStni01wh3vuCSXqLJCiDfGQpv8pjLubcxBXANHtF9AZCgzUVM442rnbjzCVKqJIBNSmXOvyXmryMgfzosi0Btlq7KV5KRIxBW6w-Wm_hp0ae_vJjehxEiK_yFMVE7vz");'></div>
+              <h3 class="font-bold">Competitive Analysis of Telecom</h3>
+              <p class="mt-1 text-sm text-black/60 dark:text-white/60">Detailed analysis of key telecom providers.</p>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="rounded-full bg-grey-light dark:bg-grey-dark px-2 py-1 text-xs font-medium text-black dark:text-white">Telecom</span>
+                <span class="rounded-full bg-grey-light dark:bg-grey-dark px-2 py-1 text-xs font-medium text-black dark:text-white">Analysis</span>
+              </div>
+              <p class="mt-3 text-xs text-black/50 dark:text-white/50">Created by Sarah, Last Updated: 2024-02-20</p>
+              <div class="mt-4 flex items-center justify-end gap-2">
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined text-base">open_in_new</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined text-base">download</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined text-base">share</span></button>
+              </div>
+            </div>
+
+            <div class="group transform-gpu cursor-pointer rounded-lg bg-white dark:bg-background-dark/50 p-4 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+              <div class="relative mb-4 w-full aspect-video rounded-md bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADRw1ey0X9zTyKMptNdVdqByw6k_3ReuW5739eput3qtJ1nE5WTYJfntL5bYsxSjypXLx2Mkg77rFpn1JPa_p2jC3eoycIPd1vOZu2zwb2Ku1MmTdYmJZuH_PGTgEYkWN68INKpiFEZxVqxSIle1bvxxJJlF5yi_V-wUyJnyGOdsMxUuo80GDxSBNeNhwFtL5F_l_jdcT_RNpqLms2L2ZvPbYvsWi1hVMsPAO-LNeMXTtKC6OvVVVC-yfvuj_p7Mt9osWDcn262AQO");'></div>
+              <h3 class="font-bold">5G Adoption in North America</h3>
+              <p class="mt-1 text-sm text-black/60 dark:text-white/60">Study on 5G adoption rates in North America.</p>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="rounded-full bg-grey-light dark:bg-grey-dark px-2 py-1 text-xs font-medium text-black dark:text-white">5G</span>
+                <span class="rounded-full bg-grey-light dark:bg-grey-dark px-2 py-1 text-xs font-medium text-black dark:text-white">North America</span>
+              </div>
+              <p class="mt-3 text-xs text-black/50 dark:text-white/50">Created by David, Last Updated: 2024-03-10</p>
+              <div class="mt-4 flex items-center justify-end gap-2">
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined text-base">open_in_new</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined text-base">download</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined text-base">share</span></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="mb-4 text-2xl font-bold">AI Briefings &amp; Digests</h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between rounded-lg bg-white dark:bg-background-dark/50 p-4 shadow-sm">
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary">smart_toy</span>
+                <div>
+                  <h3 class="font-bold">Daily Market Briefing</h3>
+                  <p class="text-sm text-black/60 dark:text-white/60">Daily AI-generated digest of market news. (Generated: 2024-05-20)</p>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined">picture_as_pdf</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined">slideshow</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined">email</span></button>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between rounded-lg bg-white dark:bg-background-dark/50 p-4 shadow-sm">
+              <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary">smart_toy</span>
+                <div>
+                  <h3 class="font-bold">Weekly Competitive Digest</h3>
+                  <p class="text-sm text-black/60 dark:text-white/60">Weekly AI-generated digest of competitive activities. (Generated: 2024-05-17)</p>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined">picture_as_pdf</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined">slideshow</span></button>
+                <button class="rounded-full p-2 hover:bg-primary/10"><span class="material-symbols-outlined">email</span></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="mb-4 text-2xl font-bold">Create Custom Report</h2>
+          <div class="rounded-lg bg-white dark:bg-background-dark/50 p-6 shadow-sm">
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div class="space-y-4">
+                <div>
+                  <label class="text-sm font-medium">Market</label>
+                  <select class="mt-1 block w-full rounded border-black/20 dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary">
+                    <option>Global</option>
+                    <option>Europe</option>
+                    <option>North America</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="text-sm font-medium">Topic</label>
+                  <select class="mt-1 block w-full rounded border-black/20 dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary">
+                    <option>Market Trends</option>
+                    <option>5G Adoption</option>
+                    <option>Consumer Behavior</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="text-sm font-medium">Competitors</label>
+                  <select class="mt-1 block w-full rounded border-black/20 dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary">
+                    <option>All</option>
+                    <option>Competitor A</option>
+                    <option>Competitor B</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <label class="text-sm font-medium">Date Range</label>
+                  <input class="mt-1 block w-full rounded border-black/20 dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary" type="date"/>
+                </div>
+                <div>
+                  <label class="text-sm font-medium">Output Type</label>
+                  <select class="mt-1 block w-full rounded border-black/20 dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary focus:ring-primary">
+                    <option>PDF</option>
+                    <option>PPT</option>
+                    <option>Excel</option>
+                  </select>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <span class="text-sm font-medium">AI Executive Summary</span>
+                  <label class="relative inline-flex cursor-pointer items-center">
+                    <input class="peer sr-only" type="checkbox" value=""/>
+                    <div class="peer h-6 w-11 rounded-full bg-black/20 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 flex justify-end">
+              <button class="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90">
+                <span class="material-symbols-outlined">auto_awesome</span>
+                <span>Generate Report</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="mb-4 text-2xl font-bold">Share &amp; Collaborate</h2>
+          <div class="flex flex-wrap items-center gap-4">
+            <button class="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-primary/20">
+              <span class="material-symbols-outlined text-base">link</span><span>Copy Link</span>
+            </button>
+            <button class="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-primary/20">
+              <span class="material-symbols-outlined text-base">send</span><span>Send to Colleague</span>
+            </button>
+            <button class="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-primary/20">
+              <span class="material-symbols-outlined text-base">picture_as_pdf</span><span>Export as PDF</span>
+            </button>
+            <button class="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-primary/20">
+              <span class="material-symbols-outlined text-base">slideshow</span><span>Export as PPTX</span>
+            </button>
+            <button class="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-black dark:text-white hover:bg-primary/20">
+              <span class="material-symbols-outlined text-base">description</span><span>Export as Excel</span>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <aside class="col-span-12 lg:col-span-3">
+        <div class="sticky top-28 space-y-8">
+          <div class="rounded-lg bg-white dark:bg-background-dark/50 p-4 shadow-sm">
+            <h3 class="mb-4 font-bold">Most Downloaded Reports</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center justify-between text-sm">
+                <a class="hover:text-primary hover:underline" href="#">Market Trends in Europe</a>
+                <span class="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">120</span>
+              </li>
+              <li class="flex items-center justify-between text-sm">
+                <a class="hover:text-primary hover:underline" href="#">Competitive Analysis of Telecom</a>
+                <span class="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">110</span>
+              </li>
+              <li class="flex items-center justify-between text-sm">
+                <a class="hover:text-primary hover:underline" href="#">5G Adoption in North America</a>
+                <span class="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">105</span>
+              </li>
+              <li class="flex items-center justify-between text-sm">
+                <a class="hover:text-primary hover:underline" href="#">Consumer Behavior in Emerging...</a>
+                <span class="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">95</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rounded-lg bg-white dark:bg-background-dark/50 p-4 shadow-sm">
+            <h3 class="mb-4 font-bold">Recently Viewed</h3>
+            <ul class="space-y-3">
+              <li class="text-sm"><a class="hover:text-primary hover:underline" href="#">Market Trends in Europe</a></li>
+              <li class="text-sm"><a class="hover:text-primary hover:underline" href="#">Competitive Analysis of Telecom</a></li>
+              <li class="text-sm"><a class="hover:text-primary hover:underline" href="#">5G Adoption in North America</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+<!-- Floating Chatbot -->
+<button id="vf-chat-toggle"
+  class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-[#ea2a33] text-white shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 flex items-center justify-center z-[60]"
+  aria-label="Open Insight Bot" title="Insight Bot">
+  <span class="material-symbols-outlined text-2xl">chat_bubble</span>
+</button>
+
+<div id="vf-chatbot"
+  class="fixed bottom-24 right-6 w-[360px] max-w-[92vw] rounded-lg shadow-lg border border-zinc-200/70 dark:border-zinc-700/60 bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-100 hidden z-[60]">
+  <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-200/70 dark:border-zinc-700/60">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-full bg-[#ea2a33] text-white flex items-center justify-center">
+        <span class="material-symbols-outlined text-[18px]">smart_toy</span>
+      </div>
+      <p class="font-semibold">Insight Bot</p>
+    </div>
+    <button id="vf-chat-close" class="p-1 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+
+  <div id="vf-chat-messages" class="h-64 overflow-y-auto px-4 py-3 space-y-3 bg-zinc-100/60 dark:bg-zinc-800/40">
+    <div class="flex gap-2">
+      <div class="w-6 h-6 rounded-full bg-[#ea2a33] text-white flex items-center justify-center mt-1">
+        <span class="material-symbols-outlined text-[14px]">smart_toy</span>
+      </div>
+      <div class="bg-white dark:bg-zinc-800 rounded-lg px-3 py-2 shadow-sm max-w-[80%]">
+        <p class="text-sm">Hi! Ask me about reports, statistics, or navigation. Try “open network”, “open market”, or “create custom report”.</p>
+      </div>
+    </div>
+  </div>
+
+  <form id="vf-chat-form" class="flex items-center gap-2 p-3 border-t border-zinc-200/70 dark:border-zinc-700/60">
+    <input id="vf-chat-input" type="text" placeholder="Type your question…"
+      class="flex-1 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-300"/>
+    <button type="submit"
+      class="px-3 py-2 bg-[#ea2a33] hover:bg-red-600 text-white rounded-md text-sm font-semibold">
+      Send
+    </button>
+  </form>
+</div>
+
+<script>
+  (function () {
+    const toggleBtn = document.getElementById('vf-chat-toggle');
+    const panel = document.getElementById('vf-chatbot');
+    const closeBtn = document.getElementById('vf-chat-close');
+    const form = document.getElementById('vf-chat-form');
+    const input = document.getElementById('vf-chat-input');
+    const messages = document.getElementById('vf-chat-messages');
+
+    const KEY = 'vf-chat-history';
+    const history = JSON.parse(localStorage.getItem(KEY) || '[]');
+
+    function appendBubble(text, who = 'user') {
+      const wrap = document.createElement('div');
+      wrap.className = 'flex gap-2 ' + (who === 'user' ? 'justify-end' : '');
+      wrap.innerHTML = (who === 'user')
+        ? `<div class="bg-[#ea2a33] text-white rounded-lg px-3 py-2 shadow-sm max-w-[80%] text-sm">${text}</div>`
+        : `<div class="w-6 h-6 rounded-full bg-[#ea2a33] text-white flex items-center justify-center mt-1"><span class="material-symbols-outlined text-[14px]">smart_toy</span></div><div class="bg-white dark:bg-zinc-800 rounded-lg px-3 py-2 shadow-sm max-w-[80%] text-sm">${text}</div>`;
+      messages.appendChild(wrap);
+      messages.scrollTop = messages.scrollHeight;
+    }
+    function saveHistory() { localStorage.setItem(KEY, JSON.stringify(history.slice(-20))); }
+
+    if (history.length) history.forEach(item => appendBubble(item.text, item.who));
+
+    toggleBtn.addEventListener('click', () => {
+      panel.classList.toggle('hidden');
+      if (!panel.classList.contains('hidden')) setTimeout(() => input.focus(), 50);
+    });
+    closeBtn.addEventListener('click', () => panel.classList.add('hidden'));
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (input.value || '').trim();
+      if (!q) return;
+
+      appendBubble(q, 'user');
+      history.push({ who: 'user', text: q }); saveHistory();
+      input.value = '';
+
+      const lower = q.toLowerCase();
+      let reply = "I’m a demo bot. Try: “open network”, “open market”, “show statistics”, or “go home”.";
+      if (lower.includes('report')) reply = `You're on Reports. Need a specific action?`;
+      if (lower.includes('stat')) reply = `Opening Statistics… <a href="./statistics.html" class="text-[#ea2a33] underline">statistics.html</a>`;
+      else if (lower.includes('market')) reply = `Opening Market… <a href="./Market.html" class="text-[#ea2a33] underline">Market.html</a>`;
+      else if (lower.includes('network')) reply = `Opening Network… <a href="./Network.html" class="text-[#ea2a33] underline">Network.html</a>`;
+      else if (lower.includes('home')) reply = `Back to Home… <a href="./index.html" class="text-[#ea2a33] underline">index.html</a>`;
+
+      setTimeout(() => {
+        appendBubble(reply, 'bot');
+        history.push({ who: 'bot', text: reply }); saveHistory();
+      }, 250);
+    });
+  })();
+</script>
+
+</body>
+</html>
