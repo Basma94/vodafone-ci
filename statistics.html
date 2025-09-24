@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vodafone CI — Statistics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<script>
+tailwind.config = { theme: { extend: {
+  fontFamily:{ sans:['Manrope','ui-sans-serif','system-ui'] },
+  colors:{ primary:'#E60000', ink:'#0F172A', fog:'#6B7280', card:'#fff', bg:'#F6F7F9' },
+  boxShadow:{ soft:'0 8px 24px rgba(15,23,42,.06)' }
+}}}
+</script>
+<style>
+  body{font-family:Manrope,system-ui,sans-serif}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24}
+  .nav a.active{color:#E60000;font-weight:800}
+</style>
+</head>
+<body class="bg-bg text-ink">
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <svg class="w-7 h-7 text-primary" viewBox="0 0 48 48" fill="currentColor"><path d="M24 45.81A21.81 21.81 0 1 1 45.81 24H24z"/></svg>
+      <span class="font-extrabold">Vodafone CI</span>
+    </div>
+    <nav class="nav hidden md:flex items-center gap-8 text-sm font-semibold text-slate-500">
+      <a href="./home.html">Home</a>
+      <a href="./insights.html">Insights</a>
+      <a href="./reports.html">Reports</a>
+      <a class="active" href="./statistics.html">Statistics</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button class="p-2 rounded-full hover:bg-slate-100"><span class="material-symbols-outlined">notifications</span></button>
+      <button class="p-2 rounded-full hover:bg-slate-100"><span class="material-symbols-outlined">settings</span></button>
+      <div class="w-9 h-9 rounded-full bg-slate-200 grid place-items-center"><span class="material-symbols-outlined text-slate-700">person</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+  <h1 class="text-2xl font-extrabold mb-4">Statistics</h1>
+
+  <div class="flex flex-wrap items-center gap-2 mb-6">
+    <button class="rounded-full bg-white px-4 py-2 text-sm font-semibold hover:shadow">Last 30 Days</button>
+    <button class="rounded-full bg-white px-4 py-2 text-sm font-semibold hover:shadow">Roles: Exec / Analyst / Admin</button>
+    <button class="rounded-full bg-white px-4 py-2 text-sm font-semibold hover:shadow">Markets: Global, EU, Local</button>
+  </div>
+
+  <!-- User Adoption -->
+  <section class="mb-10">
+    <h2 class="text-xl font-extrabold mb-3">User Adoption & Logins</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Active Users</p><p class="text-3xl font-extrabold">1,234</p><p class="text-green-600 text-sm mt-1">+10%</p></div>
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Logins</p><p class="text-3xl font-extrabold">5,678</p><p class="text-red-600 text-sm mt-1">-5%</p></div>
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Avg. Session</p><p class="text-3xl font-extrabold">2h 30m</p><p class="text-green-600 text-sm mt-1">+15%</p></div>
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Adoption Rate</p><p class="text-3xl font-extrabold">85%</p><p class="text-green-600 text-sm mt-1">+2%</p></div>
+    </div>
+  </section>
+
+  <!-- Reports & Downloads -->
+  <section class="mb-10">
+    <h2 class="text-xl font-extrabold mb-3">Reports & Downloads</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Reports Generated</p><p class="text-3xl font-extrabold">345</p><p class="text-green-600 text-sm mt-1">+5%</p></div>
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Downloads</p><p class="text-3xl font-extrabold">789</p><p class="text-green-600 text-sm mt-1">+10%</p></div>
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Shares</p><p class="text-3xl font-extrabold">123</p><p class="text-red-600 text-sm mt-1">-2%</p></div>
+    </div>
+  </section>
+
+  <!-- Business Impact -->
+  <section class="mb-10">
+    <h2 class="text-xl font-extrabold mb-3">Business Impact (ROI)</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Time Saved (vs Manual)</p><p class="text-3xl font-extrabold">450 hrs</p><p class="text-green-600 text-sm mt-1">+20%</p></div>
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Reports Automated</p><p class="text-3xl font-extrabold">150</p><p class="text-fog text-sm">Manual reports replaced by AI</p></div>
+      <div class="bg-card rounded-xl p-6 shadow-soft"><p class="text-fog text-sm">Estimated ROI</p><p class="text-3xl font-extrabold">€25,000</p><p class="text-fog text-sm">Savings this period</p></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-6">
+      <div class="bg-card rounded-xl p-6 shadow-soft">
+        <p class="font-semibold text-fog">Time Saved per Team (hrs)</p>
+        <div class="mt-4 grid h-48 grid-cols-3 items-end gap-8 px-4">
+          <div class="h-full flex flex-col justify-end"><div class="bg-primary/20 rounded-t h-3/4"></div><p class="text-center text-sm mt-2 text-fog">Network</p></div>
+          <div class="h-full flex flex-col justify-end"><div class="bg-primary/20 rounded-t h-[90%]"></div><p class="text-center text-sm mt-2 text-fog">Commercial</p></div>
+          <div class="h-full flex flex-col justify-end"><div class="bg-primary/20 rounded-t h-3/5"></div><p class="text-center text-sm mt-2 text-fog">Marketing</p></div>
+        </div>
+      </div>
+      <div class="bg-card rounded-xl p-6 shadow-soft">
+        <p class="font-semibold text-fog">ROI Growth Over Time (€)</p>
+        <div class="relative mt-4 h-48">
+          <svg class="absolute inset-0 h-full w-full" fill="none" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+            <path class="stroke-[2] stroke-red-200" d="M 0 130 C 50 100, 100 80, 150 50 C 200 20, 250 40, 300 20"></path>
+            <path class="stroke-[2] stroke-red-600" d="M 0 130 C 50 100, 100 80, 150 50"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Geographic Adoption -->
+  <section class="mb-20">
+    <h2 class="text-xl font-extrabold mb-3">Geographic Adoption</h2>
+    <div class="bg-card rounded-xl p-4 shadow-soft">
+      <div class="aspect-video w-full rounded bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1529078155058-5d716f45d604?w=1600&q=80&auto=format&fit=crop')"></div>
+    </div>
+  </section>
+</main>
+
+<!-- FAB -->
+<button id="chatFab" title="Insight Bot" class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-white grid place-items-center shadow-lg hover:scale-105 transition">
+  <span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<!-- Chatbot Panel -->
+<div id="chatOverlay" class="fixed inset-0 bg-black/30 hidden"></div>
+<aside id="chatPanel" class="fixed bottom-24 right-6 w-[380px] max-w-[92vw] bg-white rounded-2xl shadow-2xl border hidden">
+  <header class="h-12 px-4 flex items-center justify-between border-b">
+    <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">smart_toy</span><strong>Insight Bot</strong></div>
+    <button id="chatClose" class="p-1 rounded hover:bg-slate-100"><span class="material-symbols-outlined">close</span></button>
+  </header>
+  <div id="chatBody" class="p-4 space-y-3 max-h-[50vh] overflow-auto">
+    <div class="text-sm text-slate-600">Hi! Ask me about trends, competitors, pricing, sentiment, or ROI.</div>
+  </div>
+  <form id="chatForm" class="p-3 border-t flex gap-2">
+    <input id="chatInput" autocomplete="off" placeholder="Type your question…" class="flex-1 rounded-full border-slate-300 focus:border-primary focus:ring-primary" />
+    <button class="px-4 rounded-full bg-primary text-white font-semibold">Send</button>
+  </form>
+</aside>
+<script>
+(() => {
+  const qs = s=>document.querySelector(s);
+  const fab = qs('#chatFab'), overlay=qs('#chatOverlay'), panel=qs('#chatPanel'), closeBtn=qs('#chatClose');
+  const body=qs('#chatBody'), form=qs('#chatForm'), input=qs('#chatInput');
+  const open = () => { overlay.classList.remove('hidden'); panel.classList.remove('hidden'); input.focus(); };
+  const close = () => { overlay.classList.add('hidden'); panel.classList.add('hidden'); };
+  fab.addEventListener('click', open); closeBtn.addEventListener('click', close); overlay.addEventListener('click', close);
+  window.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
+  function addMsg(text, role='user'){
+    const wrap=document.createElement('div'); wrap.className=role==='user'?'flex justify-end':'flex justify-start';
+    const bubble=document.createElement('div'); bubble.className='max-w-[80%] rounded-2xl px-3.5 py-2 text-sm '+(role==='user'?'bg-primary text-white':'bg-slate-100');
+    bubble.textContent=text; wrap.appendChild(bubble); body.appendChild(wrap); body.scrollTop=body.scrollHeight;
+  }
+  function reply(q){
+    const t=q.toLowerCase();
+    if(t.includes('trend')) return 'Top trends: eSIM +25% MoM; 5G+ intensifies in DE; rural buildouts in IT.';
+    if(t.includes('competitor')) return 'A: urban 5G rollout; B: family pricing; C: rural coverage push.';
+    if(t.includes('pricing')) return 'Our blended plan ~15% below peers; monitor UK bundles.';
+    if(t.includes('sentiment')) return 'Competitor sentiment index 6.5 (↑0.2 vs last period).';
+    if(t.includes('roi')) return 'ROI ≈ €25k this period; ~450 hours saved.';
+    return 'Try filtering the dashboard (top chips) for more targeted usage insights.';
+  }
+  qs('#chatForm').addEventListener('submit', e=>{
+    e.preventDefault(); const q=input.value.trim(); if(!q) return;
+    addMsg(q,'user'); input.value=''; setTimeout(()=>addMsg(reply(q),'bot'),250);
+  });
+})();
+</script>
+</body>
+</html>
